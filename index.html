@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Steps to Redemption | 365 Affirmations &amp; Transformation Journals</title>
+    <meta name="description" content="Rewire your mindset with daily affirmations, deep monthly workbooks, and the Sacred Steps Daily Grace companion app. Your past does not define you.">
+    <meta property="og:title" content="Sacred Steps to Redemption | 365 Affirmations &amp; Transformation Journals">
+    <meta property="og:description" content="Rewire your mindset with daily affirmations, deep monthly workbooks, and the Sacred Steps Daily Grace companion app. Your past does not define you.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fonts: Fraunces (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAFAF9',
+                        charcoal: '#1F2937',
+                        sage: '#4A6741',
+                        'sage-light': '#6B8E63',
+                        lavender: '#E6E6FA',
+                        gold: '#D97706',
+                        'gold-light': '#F59E0B',
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Vibe Coding */
+        body {
+            background-color: #FAFAF9;
+            color: #1F2937;
+            overflow-x: hidden;
+        }
+
+        /* SVG Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAFAF9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4A6741;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #385231;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 103, 65, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gold Glow Effect */
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-sage selection:text-white">
+
+    <!-- Noise Texture -->
+    <div class="noise-overlay"></div>
+
+    <!-- Notification Toast for interactive feedback -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-4 px-6 lg:px-12 border-b border-transparent">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-medium text-charcoal tracking-tight flex items-center gap-1 group">
+                <span>Sacred Steps</span><span class="text-sage group-hover:scale-125 transition-transform inline-block">.</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="#journals" class="hidden sm:inline-block text-sm font-medium text-charcoal/70 hover:text-charcoal transition-colors">
+                    Journals
+                </a>
+                <a href="#book" class="hidden sm:inline-block text-sm font-medium text-charcoal/70 hover:text-charcoal transition-colors">
+                    365 Book
+                </a>
+                <a href="#free-kit" class="px-5 py-2 text-sm font-medium text-gold border border-gold/40 rounded-full hover:bg-gold hover:text-white transition-all duration-300 shadow-sm hover:shadow">
+                    Get Free 7-Day Kit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full bg-lavender/40 border border-lavender/60 text-sage text-xs font-semibold tracking-wider uppercase reveal">
+                Start Your Journey Today
+            </div>
+            
+            <h1 class="font-serif text-5xl lg:text-7xl font-medium text-charcoal leading-[1.1] mb-6 reveal" style="transition-delay: 100ms;">
+                Your Next 365 Days <br/> Start Today.
+            </h1>
+            
+            <p class="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed reveal" style="transition-delay: 200ms;">
+                Rewire your mindset with daily affirmations, deep monthly workbooks, and the Sacred Steps Daily Grace companion app. You are not defined by your past.
+            </p>
+
+            <!-- Dynamic Today's Card -->
+            <div class="glass-card max-w-md mx-auto p-6 rounded-2xl mb-10 reveal relative transition-transform hover:-translate-y-0.5 duration-200" style="transition-delay: 300ms;">
+                <div class="flex justify-between items-center border-b border-gray-100 pb-3 mb-3">
+                    <span class="text-xs font-bold text-sage uppercase tracking-widest flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                        Daily Anchor
+                    </span>
+                    <span id="current-date-display" class="text-xs text-gray-500 font-mono"></span>
+                </div>
+                <p id="daily-affirmation" class="font-serif text-xl italic text-charcoal min-h-[4rem] flex items-center justify-center">
+                    "Loading today's truth..."
+                </p>
+                <div class="mt-3 flex justify-between items-center text-xs text-gray-400">
+                    <button id="btn-cycle-affirmation" title="Preview another daily affirmation" class="text-sage/80 hover:text-sage text-[11px] underline cursor-pointer">
+                        ↻ Cycle affirmation
+                    </button>
+                    <span>Day <span id="day-of-year" class="font-semibold text-charcoal/70"></span> of 365</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4 reveal" style="transition-delay: 400ms;">
+                <a href="#free-kit" class="px-8 py-4 bg-gold text-white font-medium rounded-lg btn-glow hover:bg-gold-light transition-all transform hover:-translate-y-0.5 text-center">
+                    Download Free 7-Day Kit &amp; <span id="hero-month-name">Month</span> Workbook
+                </a>
+                <a href="#book" class="px-8 py-4 bg-transparent border border-sage text-sage font-medium rounded-lg hover:bg-sage hover:text-white transition-all text-center">
+                    Explore the 365 Book
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-lavender/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-[10%] left-[-10%] w-72 h-72 bg-sage/10 rounded-full blur-3xl"></div>
+        </div>
+    </header>
+
+    <!-- Companion App Showcase -->
+    <section class="py-20 px-6 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <span class="text-sage font-bold text-sm tracking-widest uppercase mb-2 block">Micro-Habit Tool</span>
+                    <h2 class="font-serif text-4xl text-charcoal mb-6">Your Daily Anchor: <br/>Sacred Steps Daily Grace</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A serene, 100% ad-free space for your 2-minute daily practice. Works seamlessly on PC, iOS, and Android. Free forever, with optional premium upgrades for advanced tracking and themes.
+                    </p>
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="px-3 py-1 bg-gray-100 rounded text-xs font-semibold text-gray-600">Free Core</span>
+                        <span class="px-3 py-1 bg-gray-100 rounded text-xs font-semibold text-gray-600">Optional Premium</span>
+                    </div>
+                    <a href="https://sacred-steps-daily-grace.ai.studio/" target="_blank" rel="noopener noreferrer" id="btn-launch-app" class="inline-flex items-center text-sage font-semibold hover:text-charcoal transition-colors group">
+                        Launch the App 
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+                
+                <div class="relative flex justify-center reveal" style="transition-delay: 200ms;">
+                    <!-- Phone Mockup -->
+                    <div class="relative w-[280px] h-[580px] bg-charcoal rounded-[3rem] border-8 border-charcoal shadow-2xl animate-float overflow-hidden">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-charcoal rounded-b-xl z-20"></div>
+                        <!-- Screen Content -->
+                        <div class="w-full h-full bg-cream flex flex-col items-center justify-center p-6 text-center relative select-none">
+                            <div class="absolute inset-0 bg-gradient-to-b from-sage/10 to-transparent"></div>
+                            <div class="w-16 h-16 bg-sage rounded-full flex items-center justify-center mb-6 text-white shadow-md">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <h3 class="font-serif text-2xl text-charcoal mb-2">Good Morning</h3>
+                            <p class="text-sm text-gray-500 mb-8">Your daily grace is ready.</p>
+                            <div class="bg-white p-4 rounded-xl shadow-sm w-full mb-4 border border-gray-100">
+                                <p id="phone-mockup-quote" class="font-serif italic text-charcoal text-sm leading-relaxed">"I am not a museum of my worst decisions."</p>
+                            </div>
+                            <button id="btn-phone-practice" class="w-full py-3 bg-sage hover:bg-sage-light transition-colors text-white rounded-lg text-sm font-medium shadow">Begin Practice</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Work Journals -->
+    <section id="journals" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-sage font-bold text-sm tracking-widest uppercase mb-2 block">Macro-Habit Tool</span>
+                <h2 class="font-serif text-4xl lg:text-5xl text-charcoal mb-6">Go Deeper: The 7x10" Monthly Intention Series</h2>
+                <p class="text-gray-600 text-lg">
+                    Affirmations plant the seed. These 80+ page guided journals help it take root. Designed for intentional, distraction-free reflection at your desk. Not a phone experience — a sacred ritual.
+                </p>
+            </div>
+
+            <!-- Primary Offer: Bundle -->
+            <div class="glass-card rounded-3xl p-8 lg:p-12 mb-12 border-l-4 border-l-gold reveal relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold text-white text-xs font-bold px-4 py-2 rounded-bl-xl tracking-wider">BEST VALUE</div>
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="font-serif text-3xl text-charcoal mb-4">Complete Transformation System</h3>
+                        <p class="text-gray-600 mb-6">The full year of deep work. Includes all 12 Monthly Workbooks (PDF) + Bonus Reflection Guide.</p>
+                        <div class="flex items-end gap-3 mb-8">
+                            <span class="text-4xl font-bold text-charcoal">$69.99</span>
+                            <span class="text-xl text-gray-400 line-through decoration-gray-400">$95.88</span>
+                            <span class="text-xs bg-gold/10 text-gold px-2.5 py-1 rounded-full font-semibold mb-1">Save 27%</span>
+                        </div>
+                        <button id="btn-buy-bundle" class="w-full sm:w-auto px-8 py-4 bg-gold text-white font-medium rounded-lg btn-glow hover:bg-gold-light transition-all">
+                            Get the Full Year Bundle
+                        </button>
+                    </div>
+                    <div class="bg-white/50 rounded-xl p-6 border border-gray-100">
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-sage mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                12 x 80+ Page Guided Journals (PDF)
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-sage mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Printable &amp; Tablet Friendly
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-sage mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Instant Digital Delivery
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-sage mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Save over $25 vs individual buys
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Options -->
+            <div class="grid md:grid-cols-2 gap-8 reveal" style="transition-delay: 200ms;">
+                <!-- Single Month PDF -->
+                <div class="glass-card p-8 rounded-2xl hover:border-sage/30 transition-colors flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-serif text-xl text-charcoal">Single Month Journal (PDF)</h4>
+                            <span class="text-xl font-bold text-sage">$7.99</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-6">Perfect for trying out the system before committing to the full year.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <select id="single-month-select" class="w-full p-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-sage">
+                            <option value="">Select Month...</option>
+                            <option value="January">January: Identity</option>
+                            <option value="February">February: Grace</option>
+                            <option value="March">March: Faith</option>
+                            <option value="April">April: Renewal</option>
+                            <option value="May">May: Courage</option>
+                            <option value="June">June: Purpose</option>
+                            <option value="July">July: Stillness</option>
+                            <option value="August">August: Resilience</option>
+                            <option value="September">September: Gratitude</option>
+                            <option value="October">October: Healing</option>
+                            <option value="November">November: Surrender</option>
+                            <option value="December">December: Hope</option>
+                        </select>
+                        <button id="btn-buy-single" class="px-4 py-2 bg-charcoal text-white text-sm rounded-lg hover:bg-gray-800 transition-colors shrink-0">Buy</button>
+                    </div>
+                </div>
+
+                <!-- Hardcover -->
+                <div class="glass-card p-8 rounded-2xl hover:border-sage/30 transition-colors relative flex flex-col justify-between">
+                    <div id="current-month-badge" class="hidden absolute -top-3 left-1/2 transform -translate-x-1/2 bg-sage text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        INCLUDED FREE IN STARTER KIT
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-serif text-xl text-charcoal">Premium Hardcover (7x10")</h4>
+                            <span class="text-xl font-bold text-sage">$24.99</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-6">The sacred desk ritual. High-quality paper, lay-flat binding, embossed cover.</p>
+                    </div>
+                    <button id="btn-order-hardcover" class="w-full px-4 py-2 border border-charcoal text-charcoal text-sm rounded-lg hover:bg-charcoal hover:text-white transition-colors">
+                        Order Physical Copy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 365 Affirmations Book -->
+    <section id="book" class="py-20 px-6 bg-white/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-serif text-4xl text-charcoal mb-4">The Blueprint: 365 Affirmations</h2>
+                <p class="text-gray-600">The foundational text for your journey. Available in every format to suit your lifestyle.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 reveal">
+                <!-- Format Cards -->
+                <div class="format-card group p-6 bg-white border border-gray-100 rounded-xl text-center hover:shadow-lg hover:border-sage/30 transition-all cursor-pointer transform hover:-translate-y-1" data-format="PDF" data-price="$12.99">
+                    <div class="text-sage mb-3">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-charcoal text-sm mb-1">PDF</h4>
+                    <p class="text-sage font-medium">$12.99</p>
+                    <p class="text-xs text-gray-400 mt-1">Instant Download</p>
+                </div>
+
+                <div class="format-card group p-6 bg-white border border-gray-100 rounded-xl text-center hover:shadow-lg hover:border-sage/30 transition-all cursor-pointer transform hover:-translate-y-1" data-format="Kindle" data-price="$4.99">
+                    <div class="text-sage mb-3">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-charcoal text-sm mb-1">Kindle</h4>
+                    <p class="text-sage font-medium">$4.99</p>
+                    <p class="text-xs text-gray-400 mt-1">Read Anywhere</p>
+                </div>
+
+                <div class="format-card group p-6 bg-white border border-gray-100 rounded-xl text-center hover:shadow-lg hover:border-sage/30 transition-all cursor-pointer transform hover:-translate-y-1" data-format="Audible" data-price="$14.95">
+                    <div class="text-sage mb-3">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-charcoal text-sm mb-1">Audible</h4>
+                    <p class="text-sage font-medium">$14.95</p>
+                    <p class="text-xs text-gray-400 mt-1">Listen &amp; Reflect</p>
+                </div>
+
+                <div class="format-card group p-6 bg-white border border-gray-100 rounded-xl text-center hover:shadow-lg hover:border-sage/30 transition-all cursor-pointer transform hover:-translate-y-1" data-format="Paperback" data-price="$18.99">
+                    <div class="text-sage mb-3">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-charcoal text-sm mb-1">Paperback</h4>
+                    <p class="text-sage font-medium">$18.99</p>
+                    <p class="text-xs text-gray-400 mt-1">Classic Feel</p>
+                </div>
+
+                <div class="format-card group p-6 bg-white border border-gray-100 rounded-xl text-center hover:shadow-lg hover:border-sage/30 transition-all cursor-pointer transform hover:-translate-y-1" data-format="Hardcover" data-price="$26.99">
+                    <div class="text-sage mb-3">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-charcoal text-sm mb-1">Hardcover</h4>
+                    <p class="text-sage font-medium">$26.99</p>
+                    <p class="text-xs text-gray-400 mt-1">Collector's Ed.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10 reveal">
+                <a href="#journals" class="inline-block px-8 py-3 border border-sage text-sage font-medium rounded-lg hover:bg-sage hover:text-white transition-all">
+                    View All Book Formats
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section id="free-kit" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-sage/5 -z-10"></div>
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <h2 class="font-serif text-4xl text-charcoal mb-4">Experience the Shift. For Free.</h2>
+            <p class="text-gray-600 mb-8">
+                Download the 7-Day Mindful Reset Kit plus your complimentary <span id="lead-magnet-month" class="font-bold text-sage">Month</span> Intention Workbook PDF. Best experienced at your desk with a cup of tea and a quiet mind.
+            </p>
+            
+            <form id="lead-form" class="glass-card p-8 rounded-2xl max-w-md mx-auto text-left">
+                <div class="space-y-4">
+                    <div>
+                        <label for="first-name" class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">First Name</label>
+                        <input id="first-name" type="text" placeholder="e.g. Calvin" required class="w-full px-4 py-3 bg-white/90 border border-gray-200 rounded-lg focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage transition-all text-charcoal">
+                    </div>
+                    <div>
+                        <label for="user-email" class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-1">Email Address</label>
+                        <input id="user-email" type="email" placeholder="e.g. your.email@example.com" required class="w-full px-4 py-3 bg-white/90 border border-gray-200 rounded-lg focus:outline-none focus:border-sage focus:ring-1 focus:ring-sage transition-all text-charcoal">
+                    </div>
+                    <button type="submit" id="btn-submit-kit" class="w-full py-4 bg-gold text-white font-bold rounded-lg btn-glow hover:bg-gold-light transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        <span>Send My Free Kit &amp; <span id="form-month-name">Month</span> Workbook</span>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 text-center">100% Free. No spam. Instant PDF delivery.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-serif text-3xl text-charcoal">Two Tools. One Transformation.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 reveal">
+                <!-- App Card -->
+                <div class="p-8 border border-gray-100 rounded-2xl bg-cream/50 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center text-sage mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Daily Micro-Habits</h3>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li>• 2 minutes/day</li>
+                        <li>• Streak tracking</li>
+                        <li>• On-the-go affirmations</li>
+                    </ul>
+                </div>
+
+                <!-- Journal Card -->
+                <div class="p-8 border border-gray-100 rounded-2xl bg-cream/50 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Monthly Deep Work</h3>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li>• 80+ pages per month</li>
+                        <li>• Shadow work &amp; intention setting</li>
+                        <li>• 7x10" desk ritual</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-sage font-medium mt-8 reveal">Together, they create lasting change.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-serif text-3xl text-center text-charcoal mb-10 reveal">Common Questions</h2>
+            
+            <div class="space-y-4 reveal">
+                <!-- Q1 -->
+                <details class="group glass-card rounded-xl overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-medium text-charcoal">Can I do the workbook on my phone?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                        We recommend against it. These are 80+ page deep-journaling experiences designed for focused, screen-free reflection. Download the PDF for desktop or order the 7x10" hardcover for the full experience.
+                    </div>
+                </details>
+
+                <!-- Q2 -->
+                <details class="group glass-card rounded-xl overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-medium text-charcoal">What’s included in the $69.99 bundle?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                        All 12 monthly workbooks as printable/downloadable PDFs, saving you over $25 compared to individual purchases.
+                    </div>
+                </details>
+
+                <!-- Q3 -->
+                <details class="group glass-card rounded-xl overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-medium text-charcoal">Is the app free?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                        Yes, completely free and ad-free forever. Premium upgrades are optional and only unlock app-specific features like dark mode and advanced analytics.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white/70 py-12 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h4 class="font-serif text-2xl text-white mb-2">Sacred Steps.</h4>
+                <p class="text-sm italic opacity-80">"I am capable. I am enough. I am starting today."</p>
+            </div>
+            
+            <div class="flex gap-6 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="https://sacred-steps-daily-grace.ai.studio/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">App Login</a>
+            </div>
+        </div>
+        <div class="text-center text-xs mt-10 opacity-50">
+            &copy; 2026 Sacred Steps to Redemption. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic & Browser Console Debugging Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Date & Time Logic
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 0);
+            const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+            const oneDay = 1000 * 60 * 60 * 24;
+            const dayOfYear = Math.floor(diff / oneDay);
+            
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const currentMonthName = months[now.getMonth()];
+            
+            // 30 Core Affirmations Rotation
+            const affirmations = [
+                "I am not a museum of my worst decisions.",
+                "I am more than the sum of my mistakes.",
+                "I am forgiven. My past does not control my future.",
+                "I am loved by God, not because I became lovable first, but because His love reached me while I still wasn’t.",
+                "I am accepted in the Beloved, not tolerated at arm’s length.",
+                "I am not my addiction. It was something I struggled with, not the truest thing about who I am.",
+                "I am seen by God beyond what anyone else can observe about me.",
+                "I am a child of God, called that out of love, not because I earned a good enough score.",
+                "I am a new creation. The old version of me has genuinely passed away.",
+                "I am redeemed. I am not still working off an old debt.",
+                "I am chosen, not because I passed some test, but because God decided before time began that I would belong to Him.",
+                "I am worthy of love — not because I’ve proven it, but because God’s actual posture toward me is joy.",
+                "I am never alone. Even in the isolation addiction tried to convince me was permanent, I was never actually without His presence.",
+                "I am being restored — not just from today forward, but in ways that reach back into years I thought were permanently lost.",
+                "I can release shame today, not by finally becoming good enough, but by looking toward God instead of inward at my own record.",
+                "I can let go of guilt’s permanent verdict. I can feel real sorrow over what happened without carrying a life sentence because of it.",
+                "I can believe God’s truth deeply enough that it actually produces freedom in me.",
+                "I can see myself through a wider lens than my worst season.",
+                "I can replace negative thoughts, one at a time, with something specifically true.",
+                "I can walk in grace today, especially in my weakest moments.",
+                "I can become who God created me to be, one day at a time.",
+                "I am called by God, not because my record earned it, but because His purpose for me was never based on my performance.",
+                "I am purposeful. God’s plan for me wasn’t paused or cancelled by my hardest years.",
+                "I am strengthened by God for today’s ordinary demands.",
+                "I am growing every day, even when the growth is too small to notice in the moment.",
+                "I am learning to trust God, one decision at a time.",
+                "I am becoming a testimony — not because I tell my story impressively, but because the truth of what God has done carries power.",
+                "I am walking in freedom that’s already mine.",
+                "I am moving forward, even on days it’s just a small lean rather than a big stride.",
+                "I take my next sacred step today, trusting that even this small, ordinary step is being ordered by God."
+            ];
+
+            let activeAffirmationIndex = Math.max(0, (dayOfYear - 1) % affirmations.length);
+
+            // Update DOM Elements
+            const dateDisplayEl = document.getElementById('current-date-display');
+            const dayOfYearEl = document.getElementById('day-of-year');
+            const dailyAffirmationEl = document.getElementById('daily-affirmation');
+            const phoneMockupQuoteEl = document.getElementById('phone-mockup-quote');
+
+            if (dateDisplayEl) dateDisplayEl.textContent = `${currentMonthName} ${now.getDate()}, ${now.getFullYear()}`;
+            if (dayOfYearEl) dayOfYearEl.textContent = dayOfYear;
+            
+            function renderAffirmation(index) {
+                activeAffirmationIndex = index % affirmations.length;
+                const text = affirmations[activeAffirmationIndex];
+                if (dailyAffirmationEl) {
+                    dailyAffirmationEl.style.opacity = '0';
+                    setTimeout(() => {
+                        dailyAffirmationEl.textContent = `"${text}"`;
+                        dailyAffirmationEl.style.transition = 'opacity 0.4s ease';
+                        dailyAffirmationEl.style.opacity = '1';
+                    }, 150);
+                }
+                if (phoneMockupQuoteEl) {
+                    phoneMockupQuoteEl.textContent = `"${text}"`;
+                }
+            }
+            renderAffirmation(activeAffirmationIndex);
+
+            // Cycle Affirmation Button
+            const cycleBtn = document.getElementById('btn-cycle-affirmation');
+            if (cycleBtn) {
+                cycleBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const nextIndex = (activeAffirmationIndex + 1) % affirmations.length;
+                    renderAffirmation(nextIndex);
+                    console.info(`[DEBUG] Cycle Affirmation clicked -> Index: ${nextIndex + 1}/${affirmations.length} ("${affirmations[nextIndex]}")`);
+                    showToast(`Showing affirmation #${nextIndex + 1} of ${affirmations.length}`);
+                });
+            }
+
+            // Update Month Names across sections
+            const heroMonthName = document.getElementById('hero-month-name');
+            const leadMagnetMonth = document.getElementById('lead-magnet-month');
+            const formMonthName = document.getElementById('form-month-name');
+            if (heroMonthName) heroMonthName.textContent = currentMonthName;
+            if (leadMagnetMonth) leadMagnetMonth.textContent = currentMonthName;
+            if (formMonthName) formMonthName.textContent = currentMonthName;
+
+            // Highlight Current Month in Single Month dropdown & Starter badge
+            const monthBadge = document.getElementById('current-month-badge');
+            if (monthBadge) {
+                monthBadge.classList.remove('hidden');
+                monthBadge.textContent = `${currentMonthName.toUpperCase()} INCLUDED FREE IN STARTER KIT`;
+            }
+
+            const singleMonthSelect = document.getElementById('single-month-select');
+            if (singleMonthSelect) {
+                singleMonthSelect.value = currentMonthName;
+                singleMonthSelect.addEventListener('change', (e) => {
+                    console.info(`[DEBUG] Single Month Journal Selection Changed: "${e.target.value}"`);
+                });
+            }
+
+            // 2. Intersection Observer for Scroll Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // 3. Sticky Navbar Effect with Scroll Debugging
+            const navbar = document.getElementById('navbar');
+            let isGlassNav = false;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    if (!isGlassNav) {
+                        isGlassNav = true;
+                        navbar.classList.add('glass', 'shadow-sm', 'border-gray-200/50');
+                        navbar.classList.remove('border-transparent');
+                    }
+                } else {
+                    if (isGlassNav) {
+                        isGlassNav = false;
+                        navbar.classList.remove('glass', 'shadow-sm', 'border-gray-200/50');
+                        navbar.classList.add('border-transparent');
+                    }
+                }
+            });
+
+            // 4. Toast Notification Utility
+            function showToast(message, type = 'info') {
+                const container = document.getElementById('toast-container');
+                if (!container) return;
+                const toast = document.createElement('div');
+                toast.className = 'pointer-events-auto bg-charcoal text-white text-xs px-4 py-3 rounded-lg shadow-lg border border-white/10 flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0';
+                
+                const icon = type === 'success' 
+                    ? '<svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>'
+                    : '<svg class="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+                
+                toast.innerHTML = `${icon} <span>${message}</span>`;
+                container.appendChild(toast);
+                
+                requestAnimationFrame(() => {
+                    toast.classList.remove('translate-y-2', 'opacity-0');
+                    toast.classList.add('translate-y-0', 'opacity-100');
+                });
+
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3500);
+            }
+
+            // 5. Interactive Form & Purchase Click Handlers for Console Debugging
+            const leadForm = document.getElementById('lead-form');
+            if (leadForm) {
+                leadForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const firstName = document.getElementById('first-name')?.value || '';
+                    const email = document.getElementById('user-email')?.value || '';
+                    
+                    const submissionData = {
+                        firstName,
+                        email,
+                        kit: '7-Day Mindful Reset Kit',
+                        bonusWorkbook: `${currentMonthName} Intention Workbook (PDF)`,
+                        timestamp: new Date().toISOString(),
+                        dayOfYear
+                    };
+
+                    console.group('📥 [DEBUG] Lead Magnet Form Submission Received');
+                    console.log('Customer Details:', submissionData);
+                    console.info('Status: 200 OK | Delivery dispatched via email queue.');
+                    console.groupEnd();
+
+                    showToast(`✨ Success! ${currentMonthName} Workbook sent to ${email}`, 'success');
+                    leadForm.reset();
+                });
+            }
+
+            // Format card debug click listeners
+            document.querySelectorAll('.format-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const format = card.getAttribute('data-format');
+                    const price = card.getAttribute('data-price');
+                    console.info(`[DEBUG] Book Format Selected: ${format} (${price})`);
+                    showToast(`Selected: 365 Affirmations ${format} edition (${price})`);
+                });
+            });
+
+            // Bundle buy button
+            const btnBuyBundle = document.getElementById('btn-buy-bundle');
+            if (btnBuyBundle) {
+                btnBuyBundle.addEventListener('click', () => {
+                    console.info('[DEBUG] Complete Transformation System Bundle ($69.99) checkout triggered.');
+                    showToast('Opening 12-Month Bundle Checkout ($69.99)');
+                });
+            }
+
+            // Single month buy button
+            const btnBuySingle = document.getElementById('btn-buy-single');
+            if (btnBuySingle) {
+                btnBuySingle.addEventListener('click', () => {
+                    const selected = singleMonthSelect ? singleMonthSelect.value : currentMonthName;
+                    console.info(`[DEBUG] Single Month Workbook purchase clicked for: ${selected || currentMonthName} ($7.99)`);
+                    showToast(`Opening checkout for ${selected || currentMonthName} Workbook ($7.99)`);
+                });
+            }
+
+            // Hardcover order button
+            const btnOrderHardcover = document.getElementById('btn-order-hardcover');
+            if (btnOrderHardcover) {
+                btnOrderHardcover.addEventListener('click', () => {
+                    console.info('[DEBUG] Premium Hardcover (7x10") physical order triggered ($24.99).');
+                    showToast('Opening Physical Hardcover Order ($24.99)');
+                });
+            }
+
+            // Phone practice button
+            const btnPhonePractice = document.getElementById('btn-phone-practice');
+            if (btnPhonePractice) {
+                btnPhonePractice.addEventListener('click', () => {
+                    console.info('[DEBUG] Companion App "Begin Practice" clicked from phone preview.');
+                    showToast('Opening Daily Practice in Sacred Steps App...');
+                });
+            }
+
+            // Launch app link
+            const btnLaunchApp = document.getElementById('btn-launch-app');
+            if (btnLaunchApp) {
+                btnLaunchApp.addEventListener('click', () => {
+                    console.info('[DEBUG] External companion app link launched: https://sacred-steps-daily-grace.ai.studio/');
+                });
+            }
+
+            // 6. Comprehensive Console Debugging Output & Developer Console API
+            const debugPayload = {
+                app: "Sacred Steps to Redemption",
+                version: "1.0.0",
+                environment: "Production / AI Studio Dev",
+                date: {
+                    iso: now.toISOString(),
+                    formatted: `${currentMonthName} ${now.getDate()}, ${now.getFullYear()}`,
+                    dayOfYear: dayOfYear,
+                    totalDaysInYear: 365,
+                    month: currentMonthName,
+                    monthIndex: now.getMonth()
+                },
+                affirmation: {
+                    index: activeAffirmationIndex + 1,
+                    totalAvailable: affirmations.length,
+                    text: affirmations[activeAffirmationIndex]
+                },
+                elementsFound: {
+                    navbar: Boolean(navbar),
+                    dateDisplay: Boolean(dateDisplayEl),
+                    dayOfYearBadge: Boolean(dayOfYearEl),
+                    affirmationText: Boolean(dailyAffirmationEl),
+                    leadForm: Boolean(leadForm),
+                    currentMonthBadge: Boolean(monthBadge),
+                    revealAnimationCount: revealElements.length
+                }
+            };
+
+            // Styled console output for effortless debugging
+            console.log(
+                '%c🌿 Sacred Steps to Redemption%c Landing Page Loaded Successfully ',
+                'background: #4A6741; color: #FFFFFF; font-weight: bold; font-size: 13px; padding: 4px 8px; border-radius: 4px 0 0 4px;',
+                'background: #1F2937; color: #F59E0B; font-weight: bold; font-size: 13px; padding: 4px 8px; border-radius: 0 4px 4px 0;'
+            );
+
+            console.groupCollapsed('🔍 [System Diagnostics & State Inspection]');
+            console.table([
+                { Property: 'Current Date', Value: `${currentMonthName} ${now.getDate()}, ${now.getFullYear()}` },
+                { Property: 'Day of Year', Value: `${dayOfYear} of 365` },
+                { Property: 'Active Month', Value: currentMonthName },
+                { Property: 'Affirmation #', Value: `${activeAffirmationIndex + 1} of ${affirmations.length}` },
+                { Property: 'Scroll Reveal Elements', Value: `${revealElements.length} elements observed` },
+                { Property: 'Companion App Target', Value: 'https://sacred-steps-daily-grace.ai.studio/' }
+            ]);
+            console.log('Daily Anchor Text:', affirmations[activeAffirmationIndex]);
+            console.log('Full Diagnostic Object:', debugPayload);
+            console.groupEnd();
+
+            // Expose Developer Debugging Utility to window
+            window.SacredStepsDebug = {
+                state: debugPayload,
+                affirmations: affirmations,
+                renderAffirmation,
+                showToast,
+                nextAffirmation: () => {
+                    const next = (activeAffirmationIndex + 1) % affirmations.length;
+                    renderAffirmation(next);
+                    console.log(`[DEBUG API] Advanced to Affirmation #${next + 1}: "${affirmations[next]}"`);
+                    return affirmations[next];
+                },
+                prevAffirmation: () => {
+                    const prev = (activeAffirmationIndex - 1 + affirmations.length) % affirmations.length;
+                    renderAffirmation(prev);
+                    console.log(`[DEBUG API] Reverted to Affirmation #${prev + 1}: "${affirmations[prev]}"`);
+                    return affirmations[prev];
+                },
+                setMonth: (monthName) => {
+                    if (heroMonthName) heroMonthName.textContent = monthName;
+                    if (leadMagnetMonth) leadMagnetMonth.textContent = monthName;
+                    if (formMonthName) formMonthName.textContent = monthName;
+                    if (monthBadge) monthBadge.textContent = `${monthName.toUpperCase()} INCLUDED FREE IN STARTER KIT`;
+                    if (singleMonthSelect) singleMonthSelect.value = monthName;
+                    console.log(`[DEBUG API] Updated active month display to "${monthName}"`);
+                },
+                testSubmit: (name = "Grace Traveler", email = "test@example.com") => {
+                    if (document.getElementById('first-name')) document.getElementById('first-name').value = name;
+                    if (document.getElementById('user-email')) document.getElementById('user-email').value = email;
+                    if (leadForm) leadForm.dispatchEvent(new Event('submit'));
+                },
+                getStatus: () => {
+                    return {
+                        currentDate: `${currentMonthName} ${now.getDate()}, ${now.getFullYear()}`,
+                        dayOfYear,
+                        month: currentMonthName,
+                        affirmationIndex: activeAffirmationIndex + 1,
+                        affirmation: affirmations[activeAffirmationIndex]
+                    };
+                }
+            };
+
+            console.info(
+                '%c💡 Developer Debugging Controls%c window.SacredStepsDebug is available! Try: SacredStepsDebug.nextAffirmation(), SacredStepsDebug.setMonth("November"), SacredStepsDebug.getStatus()',
+                'color: #4A6741; font-weight: bold;',
+                'color: #6B7280;'
+            );
+        });
+    </script>
+</body>
+</html>

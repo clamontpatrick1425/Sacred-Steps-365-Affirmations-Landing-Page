@@ -1,0 +1,6 @@
+{
+  "name": "Sacred Steps to Redemption",
+  "description": "365 Affirmations & Transformation Journals landing page with daily affirmations, monthly workbooks, and Daily Grace companion app.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
